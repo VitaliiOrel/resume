@@ -1,0 +1,97 @@
+{{!--
+Це код container файлу для summary сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+{{#with person}}
+<div>
+    <main>
+        <h2>{{name}}</h2>
+        <section>
+            {{age}} years old, <span style="text-transform: lowercase;">{{gender}}</span>
+
+            {{#with address}}
+            <p>
+                <em>{{street}} {{city}} {{state}} {{zip}} {{country}}</em>
+            </p>
+            {{/with}}
+        </section>
+
+        <hr>
+        <section>
+            <h3>Education:</h3>
+            {{#each education}}
+
+            <p>
+                degree: {{degree}}, major: {{major}}
+            </p>
+
+            University: {{university}}
+            <br>
+            <em>the year of graduation is {{graduationYear}}</em>
+            {{/each}}
+        </section>
+        <hr>
+        {{#each workExperience}}
+        <section>
+            <h3>Work expirience:</h3>
+            <p>
+                {{title}}
+            </p>
+            {{company}} {{year_founded}} {{industry}}
+            <p>
+                {{startDate}} - {{endDate}}
+            </p>
+            {{responsibilities}}
+        </section>
+
+        <hr>
+
+        {{#each employees}}
+        <section>
+            <h3>Employee:</h3>
+            <b>{{name}}</b> {{position}}, department: {{department}}
+        </section>
+        <hr>
+        {{#each projects}}
+        <section>
+            <h3>Projects:</h3>
+            {{name}}: {{description}}
+            <p>Status: {{status}}</p>
+        </section>
+        <hr>
+        {{#each teams}}
+        <section>
+            <h3>Team:</h3>
+            {{team_name}}, {{team_leader.title}}: {{team_leader.name}} {{> link text=team_leader.email
+            href=team_leader.email blank=true noLine=true}}
+            <br>
+            <h4>Team members:</h4>
+            {{#each team_members}}
+            {{name}}, <em>{{title}}</em>, {{> link text=email
+            href=email blank=true noLine=true}}<br>
+            Skills: {{#each skills}}{{this}} {{/each}}
+
+            {{#each projects}}
+            <p>Projects:</p>
+            {{name}}: {{description}}<br>
+            <em>Technologies: {{#each technologies}} {{this}} {{/each}}</em>
+            <p>Collaborators:</p>
+            {{#each team_members}} {{name}}, {{title}} <br> {{/each}}
+            {{/each}}
+            {{/each}}
+        </section>
+
+        <hr>
+        {{/each}}
+        {{/each}}
+        {{/each}}
+        {{/each}}
+
+    </main>
+</div>
+{{/with}}
+
+{{!--
+Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+Адже наш layout/default.hbs має вже структуру HTML
+--}}
