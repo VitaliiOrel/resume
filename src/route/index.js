@@ -735,7 +735,7 @@ router.get('/car', function (req, res) {
   //            ↙ cюди вводимо назву файлу з сontainer
   res.render('car', {
     layout: 'basic',
-    title: "Toyota Camry",
+    title: 'Toyota Camry',
     make: 'Toyota',
     model: 'Camry',
     year: 2022,
@@ -824,7 +824,11 @@ router.get('/car', function (req, res) {
       },
       total: 28990,
     },
-=======
+  })
+  //                  ↑↑ сюди вводимо JSON дані
+})
+
+// ==============================================
 router.get('/js', function (req, res) {
   // res.render генерує нам HTML сторінку
 
