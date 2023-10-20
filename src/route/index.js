@@ -1226,7 +1226,9 @@ router.get('/task22', function (req, res) {
           },
         },
       },
-    })
+    },
+  })
+})
 
 router.get('/task21', function (req, res) {
   // res.render генерує нам HTML сторінку
@@ -1295,7 +1297,8 @@ router.get('/task21', function (req, res) {
       ],
     },
   })
-  //                  ↑↑ сюди вводимо JSON дані
+})
+//                  ↑↑ сюди вводимо JSON дані
 
 // ================================================================
 
