@@ -1849,15 +1849,28 @@ router.get('/shophome', function (req, res) {
   })
 })
 
+// ================================================================
+
 router.get('/bs', function (req, res) {
   // res.render генерує нам HTML сторінку
 
   //            ↙ cюди вводимо назву файлу з сontainer
   res.render('bs', {
     layout: 'basic',
-    title: 'shophome',
+    title: 'bs - examples',
   })
 })
+
+router.get('/form', function (req, res) {
+  // res.render генерує нам HTML сторінку
+
+  //            ↙ cюди вводимо назву файлу з сontainer
+  res.render('form', {
+    layout: 'basic',
+    title: 'form -- input',
+  })
+})
+
 // ================================================================
 
 // Підключаємо роутер до бек-енду
