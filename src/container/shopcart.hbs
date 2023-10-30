@@ -1,0 +1,189 @@
+<main class="row">
+    <div class="row me-5">
+
+        {{!-- ========= Navigation ============= --}}
+
+        {{#with navigation}}
+        <div class="card col-12 px-0">
+            <div class="nav">
+
+                {{#each links}}
+                <div class="nav-item">
+                    <a href="{{this.href}}" class="nav-link {{#unless this.href}}disabled{{/unless}}">{{this.text}}
+                    </a>
+                </div>
+                {{/each}}
+
+                <a href="#" class="nav-link {{#unless this.href}}disabled{{/unless}}">Disabled
+                </a>
+
+
+
+            </div>
+        </div>
+        {{/with}}
+
+        {{!-- ================header Кошик title ===================== --}}
+
+        {{#with header}}
+
+        <div class="mt-4 mb-1">
+            <h1>{{title}}</h1>
+        </div>
+
+        {{#with button}}
+        <div class="col-3">
+            <a href="{{link}}" class="btn btn-outline-secondary btn-sm">{{text}}</a>
+        </div>
+        {{/with}}
+        {{/with}}
+
+        <div class="col-12 py-4">
+            <hr>
+        </div>
+
+        {{!-- ===================== список товарів ========================= --}}
+
+        {{#each goodsBlock}}
+        {{#with this}}
+
+        {{>cartGoodsItem}}
+
+        {{!-- <div class="card my-2">
+
+            <div class="row">
+
+                <div class="col-2 ms-2 my-2 ps-0 pe-0 me-0">
+                    <img src="{{image}}" width="110" height="110">
+                </div>
+
+                <div class="col-4 pt-2">
+                    <h5 class="mb-1">{{name}}</h5>
+                    <p>{{description}}</p>
+                </div>
+
+                <div class="col-2 pt-4 mx-0 px-0">
+                    <p>{{price.title}}</p>
+                    <p>{{price.value}}</p>
+                </div>
+
+                <div class="col-2 pt-3 mt-3 mx-0 px-0">
+                    <p>{{amount}}</p>
+                </div>
+
+
+                <div class="col-1 mx-0 px-0">
+
+                    {{#each buttons}}
+                    <button class="btn 
+                    {{#if isPrimary}}btn-primary
+                    {{else if isDanger}}btn-outline-danger
+                    {{else}}btn-secondary{{/if}}
+                    btn-sm mt-2">{{text}}</button>
+                    {{/each}}
+
+                </div>
+
+            </div>
+
+
+        </div> --}}
+
+        {{/with}}
+        {{/each}}
+
+
+        {{!-- ================ інші товари ======================= --}}
+
+        {{#with goodsOtherBlock}}
+
+        <h3 class="text-center">{{title}}</h3>
+
+        {{#each cards}}
+
+        {{>goodOther}}
+
+        {{!-- <div class="col-4 px-1 mx-0 g-2">
+
+            <div class="card ps-0 ms-0">
+                <img class="card-img-top" src="{{this.image}}" alt="foto">
+                <div class="card-body">
+
+                    <h5 class="card-title">{{this.title}}
+                        {{#if this.isHot}}<span class="badge rounded-pill bg-warning">HOT!</span>{{/if}}
+                        {{#if this.isNew}}<span class="badge rounded-pill bg-primary">New</span>{{/if}}</h5>
+                    <p>{{this.description}}</p>
+                </div>
+            </div>
+
+        </div> --}}
+
+        {{/each}}
+
+        {{/with}}
+
+        {{!-- ====================== subscribe ==================== --}}
+
+        {{#with subscribe}}
+
+        <div class="card text-bg-dark">
+            <div class="card-header">
+                <h2>{{header}}</h2>
+            </div>
+            <div class="card-body">
+                <p>{{description}}</p>
+                {{#each buttons}}
+                <a href="{{this.link}}" class="btn btn-primary btn-sm  my-1" target="_blank">{{this.text}}</a><br>
+                {{/each}}
+            </div>
+
+        </div>
+
+        {{/with}}
+
+        <div class="my-5">
+            <hr>
+        </div>
+
+
+
+
+        {{!-- =================== f o o t e r ==================== --}}
+        <footer class="row">
+
+            {{#each footer}}
+
+            <div class="col-2 ms-0 ps-0 me-3">
+                <div class="nav flex-column">
+
+                    <div class="nav-item">
+                        <a class="nav-link active" href="{{this.[0].link}}">
+                            <nobr>{{this.[0].text}}</nobr>
+                        </a>
+                    </div>
+                    <div class="nav-item">
+                        <a class="nav-link active" href="{{this.[1].link}}">
+                            <nobr>{{this.[1].text}}</nobr>
+                        </a>
+                    </div>
+                    <div class="nav-item">
+                        <a class="nav-link active" href="{{this.[2].link}}">
+                            <nobr>{{this.[2].text}}</nobr>
+                        </a>
+                    </div>
+                    <div class="nav-item">
+                        <a class="nav-link disabled" href="{{this.[3].link}}">
+                            <nobr>{{this.[3].text}}</nobr>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+            {{/each}}
+
+        </footer>
+
+    </div>
+
+</main>
