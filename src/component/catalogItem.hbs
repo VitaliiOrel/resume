@@ -1,0 +1,28 @@
+<div class="card mt-4">
+    <img class="card-img-top" src="{{this.img}}" alt="photo">
+    <div class="card-body">
+        {{#if this.isHot}}<span class="badge rounded-pill bg-warning">HOT!</span>{{/if}}
+        {{#if this.isNew}}<span class="badge rounded-pill bg-primary">New</span><br>{{/if}}
+        {{#if this.isFast}}<span class="badge bg-success">Швидка доставка</span><br>{{/if}}
+        {{#if this.isFree}}<span class="badge bg-secondary">Безкоштовна доставка</span>{{/if}}
+        <h6 class="mt-2">{{this.name}}</h6>
+        {{#with review}}
+        <p>{{amount}} {{text}}</p>
+        {{/with}}
+        <p>{{price}}</p>
+        <p>{{delivery}}</p>
+        {{#each buttons}}
+        <a href="{{this.link}}" class="btn 
+                            {{#if this.isPrimary}}btn-primary
+                            {{else if this.isSecondary}}btn-secondary
+                            {{else}}btn-outline-secondary{{/if}} btn-sm my-1">{{this.text}}</a><br>
+        {{/each}}
+        <ul>
+            {{#each characteristics}}
+            <li>
+                <div>{{this.title}}: {{this.value}}</div>
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+</div>
