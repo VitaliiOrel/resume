@@ -2,6 +2,18 @@ html {
   max-width: 1020px;
 }
 
+.card p {
+  text-align: justify;
+}
+
+.fixed-button {
+  position: fixed;
+  top: 2;
+  right: 0;
+  z-index: 999;
+  opacity: 0.5;
+}
+
 /* body {
   margin: 32px;
   background: #fff;

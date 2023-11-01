@@ -32,6 +32,13 @@ let footer = {
   },
 }
 
+let startInfo = {
+  name: 'Vitalii Orel',
+  title: 'Resume project',
+  description:
+    'Творчих і цілеспрямованих людей поєднує пристрасть до мистецтва та інновацій, а також постійне прагнення до саморозвитку та досягнення поставлених цілей, незалежно від труднощів, що долаються. Вони мають унікальне бачення і винахідливість, що дозволяє їм творчо реалізовувати свої ідеї і досягати видатних результатів.',
+}
+
 // ================================================================
 
 // router.get Створює нам один ентпоїнт
@@ -41,7 +48,32 @@ router.get('/', function (req, res) {
   // res.render генерує нам HTML сторінку
 
   //            ↙ cюди вводимо назву файлу з сontainer
-  res.render('index', {})
+  res.render('index', {
+    layout: 'basic',
+    title: '-- Start page --',
+    startInfo,
+    btnBlock: [
+      { href: '/', text: 'Home' },
+      { href: '/person', text: 'Person' },
+      { href: '/bio', text: 'Bio' },
+      { href: '/program', text: 'Program' },
+      { href: '/web', text: 'Web' },
+      { href: '/js', text: 'JS' },
+      { href: '/car', text: 'Car' },
+      { href: '/facebook', text: 'Facebook' },
+      { href: '/mac', text: 'Mac' },
+      { href: '/bootstrap', text: 'Bootstrap' },
+      { href: '/task21', text: 'task21' },
+      { href: '/task22', text: 'task22' },
+      { href: '/task31', text: 'task31' },
+      { href: '/shophome', text: 'shophome' },
+      { href: '/shoporder', text: 'shoporder' },
+      { href: '/shopcart', text: 'shopcart' },
+      { href: '/shopprofile', text: 'shopprofile' },
+      { href: '/shopreview', text: 'shopreview' },
+      { href: '/shopcatalog', text: 'shopcatalog' },
+    ],
+  })
   //                  ↑↑ сюди вводимо JSON дані
 })
 // ================================================================

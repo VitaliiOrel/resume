@@ -3,74 +3,84 @@
 в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
 --}}
 
-{{#each web}}
-<div>
-    <main>
-        <h1>Web deweloping includes {{@key}}:</h1>
+{{#with web}}
 
-        <hr>
+<main>
 
-        {{#each this}}
-        <h2>{{name}}</h2>
-        <p>Current version: {{version}}</p>
-        <p>{{description}}</p>
+    <div class="card mb-1">
+        <div class="card-body text-light text-bg-primary">
+            <h1>Web deweloping includes:</h1>
+        </div>
+    </div>
 
-        {{#if elements}}
-        <h3>In {{name}} we use tegs:</h3>
-        {{/if}}
-        <ul>
-            {{#each elements}}
-            <li>
-                <p>
-                    <code><</code>{{name}}<code>></code>
-                </p>
-                <p>{{description}}</p>
-                {{#if attributes}}<em>Attributes:</em>{{/if}}
-                {{#each attributes}}
-                <p>{{name}}: {{description}}</p>
+
+    {{#each languages}}
+    <div class="card">
+        <div class="card-header text-primary">
+            <h2>{{name}}</h2>
+            <p>Current version: {{version}}</p>
+            <p>{{description}}</p>
+        </div>
+
+        <div class="card-body">
+            {{#if elements}}
+            <h3>In {{name}} we use tegs:</h3>
+            {{/if}}
+            <ul>
+                {{#each elements}}
+                <li>
+                    <p>
+                        <code><</code>{{name}}<code>></code>
+                    </p>
+                    <p>{{description}}</p>
+                    {{#if attributes}}<em>Attributes:</em>{{/if}}
+                    {{#each attributes}}
+                    <p>{{name}}: {{description}}</p>
+                    {{/each}}
+                </li>
                 {{/each}}
-            </li>
-            {{/each}}
-        </ul>
+            </ul>
 
 
-        {{#if properties}}
-        <h3>In {{name}} we use properties:</h3>
-        {{/if}}
-        <ul>
-            {{#each properties}}
-            <li>
-                <p> {{name}} </p>
-                <p> {{description}} </p>
-                {{#if values}}<em>Values:</em>{{/if}}
-                {{#each values}}
-                <p>{{value}}: {{description}}</p>
+            {{#if properties}}
+            <h3>In {{name}} we use properties:</h3>
+            {{/if}}
+            <ul>
+                {{#each properties}}
+                <li>
+                    <p> {{name}} </p>
+                    <p> {{description}} </p>
+                    {{#if values}}<em>Values:</em>{{/if}}
+                    {{#each values}}
+                    <p>{{value}}: {{description}}</p>
+                    {{/each}}
+                </li>
                 {{/each}}
-            </li>
-            {{/each}}
-        </ul>
+            </ul>
 
-        {{#if functions}}
-        <h3>In {{name}} we use functions:</h3>
-        {{/if}}
-        <ul>
-            {{#each functions}}
-            <li>
-                <p> {{name}} </p>
-                <p> {{description}} </p>
-                {{#if parameters}}<em>Parameters:</em>{{/if}}
-                {{#each parameters}}
-                <p>{{name}} (type: {{type}}): {{description}}</p>
+            {{#if functions}}
+            <h3>In {{name}} we use functions:</h3>
+            {{/if}}
+            <ul>
+                {{#each functions}}
+                <li>
+                    <p> {{name}} </p>
+                    <p> {{description}} </p>
+                    {{#if parameters}}<em>Parameters:</em>{{/if}}
+                    {{#each parameters}}
+                    <p>{{name}} (type: {{type}}): {{description}}</p>
+                    {{/each}}
+                </li>
                 {{/each}}
-            </li>
-            {{/each}}
-        </ul>
+            </ul>
 
-        <hr>
-        {{/each}}
-    </main>
-</div>
-{{/each}}
+
+            {{/each}}
+        </div>
+    </div>
+</main>
+
+{{/with}}
 {{!--
 Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
 Адже наш layout/default.hbs має вже структуру HTML

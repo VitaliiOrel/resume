@@ -4,83 +4,131 @@
 --}}
 
 
-<div>
-    <main>
-        <h1>{{make}} {{model}}</h1>
-        <h3> {{year}} --- {{color}} </h3>
-        <hr>
-        <h2>Features:</h2>
-        {{#each features}}
-        <div>
-            <h3>{{@key}}:</h3>
-            {{#each this}}
-            {{@key}}
-            <ul>
-                {{#each this}}
-                <li>
-                    {{@key}}:{{#unless this.touchscreen}} {{this}}
-                    {{else}}
-                    <ul>
-                        {{#each this}}
-                        <li>
-                            {{this}}
+<main>
 
-                        </li>
-                        {{/each}}
-                    </ul>
-                    {{/unless}}
-                </li>
+
+    <div class="card mb-3">
+        <div class="card-body">
+
+            <div class="display-4">
+                <p>{{make}} {{model}} --- {{year}} --- {{color}} </p>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="card">
+
+        <div class="card-header">
+            <div class="display-6">Features:</div>
+        </div>
+
+        <div class="card-body">
+
+            <div class="row">
+
+                {{#each features}}
+                <section class="col-4">
+                    <div class="card my-0 mx-0">
+                        <div class="card-body">
+                            <h3>{{@key}}:</h3>
+                            {{#each this}}
+                            {{@key}}
+                            <ul>
+                                {{#each this}}
+                                <li>
+                                    {{@key}}:{{#unless this.touchscreen}} {{this}}
+                                    {{else}}
+                                    <ul>
+                                        {{#each this}}
+                                        <li>
+                                            {{this}}
+
+                                        </li>
+                                        {{/each}}
+                                    </ul>
+                                    {{/unless}}
+                                </li>
+                                {{/each}}
+                            </ul>
+                            {{/each}}
+                        </div>
+                </section>
                 {{/each}}
-            </ul>
-            {{/each}}
+
+            </div>
+
         </div>
-        {{/each}}
 
-        <h2>Engine:</h2>
-        {{#each engine}}
-        <div>
-            <p>{{@key}}: {{#unless this.gears}} {{this}}</p>
-            {{else}}
-            <ul>
-                {{#each this}}
-                <li>
-                    {{@key}} - {{this}}
+    </div>
 
-                </li>
-                {{/each}}
-            </ul>
-            {{/unless}}
-        </div>
-        {{/each}}
+    <div class="row">
 
-        <h2>Fuel economy:</h2>
-        {{#each fuel_economy}}
-        <div>
-            <p>{{@key}}: {{this}}</p>
-        </div>
-        {{/each}}
+        <section class="col-4">
 
-        <h2>Price:</h2>
-        {{#each price}}
-        <div>
-            <p>{{@key}}: {{#unless this.navigation}} {{this}}</p>
-            {{else}}
-            <ul>
-                {{#each this}}
-                <li>
-                    {{@key}} - {{this}}
+            <div class="card mt-3 mb-3">
+                <div class="card-body">
+                    <h2>Engine:</h2>
 
-                </li>
-                {{/each}}
-            </ul>
-            {{/unless}}
-        </div>
-        {{/each}}
+                    {{#each engine}}
+                    <div>
+                        <p>{{@key}}: {{#unless this.gears}} {{this}}</p>
+                        {{else}}
+                        <ul>
+                            {{#each this}}
+                            <li>
+                                {{@key}} - {{this}}
+
+                            </li>
+                            {{/each}}
+                        </ul>
+                        {{/unless}}
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+        </section>
+
+        <section class="col-4">
+            <div class="card mt-3">
+                <div class="card-body">
+                    <h2>Fuel economy:</h2>
+                    {{#each fuel_economy}}
+                    <div>
+                        <p>{{@key}}: {{this}}</p>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+        </section>
+
+        <section class="col-4">
+            <div class="card mt-3">
+                <div class="card-body">
+                    <h2>Price:</h2>
+                    {{#each price}}
+                    <div>
+                        <p>{{@key}}: {{#unless this.navigation}} {{this}}</p>
+                        {{else}}
+                        <ul>
+                            {{#each this}}
+                            <li>
+                                {{@key}} - {{this}}
+
+                            </li>
+                            {{/each}}
+                        </ul>
+                        {{/unless}}
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+        </section>
+
+    </div>
 
 
-
-    </main>
-</div>
+</main>
 
 {{!--
 Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
