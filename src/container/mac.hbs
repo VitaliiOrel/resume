@@ -3,8 +3,8 @@
 в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
 --}}
 
-<div>
-    <main>
+<main>
+    <div class="row g-3">
 
         <h1>{{name}}</h1>
         <h3>{{description}}</h3>
@@ -13,80 +13,145 @@
         <p>Category: {{category}}</p>
         <hr>
         <h3>Features:</h3>
+
         {{#with features}}
-        <h5>Processor:</h5>
-        <ul>
-            {{#each processor}}
-            <li>{{@key}}: {{this}}</li>
-            {{/each}}
-        </ul>
-        <h5>Memory:</h5>
-        <ul>
-            {{#each memory}}
-            <li>{{@key}}: {{this}}</li>
-            {{/each}}
-        </ul>
-        <h5>Memory:</h5>
-        <ul>
-            {{#each memory}}
-            <li>{{@key}}: {{this}}</li>
-            {{/each}}
-        </ul>
-        <h5>Storage:</h5>
-        <ul>
-            {{#each storage}}
-            <li>{{@key}}: {{this}}</li>
-            {{/each}}
-        </ul>
-        <h5>Display:</h5>
-        <ul>
-            {{#each display}}
-            <li>{{@key}}: {{this}}</li>
-            {{/each}}
-        </ul>
-        <h5>Graphics options:</h5>
-        <ul>
-            {{#each graphics}}
-            <li>{{@key}}: {{this}}</li>
-            {{/each}}
-        </ul>
-        <h5>Ports:</h5>
-        {{#each ports}}
-        <ul>
-            {{#each this}}
-            <li>{{@key}}: {{this}}</li>
-            {{/each}}
-        </ul>
-        {{/each}}
-        <h5>Battery:</h5>
-        <ul>
-            {{#each battery}}
-            <li>{{@key}}: {{this}}</li>
-            {{/each}}
-        </ul>
-        <h5>Weight:</h5>
-        <p>{{weight}}</p>
-        <h5>Dimensions:</h5>
-        <ul>
-            {{#each dimensions}}
-            <li>{{@key}}: {{this}}</li>
-            {{/each}}
-        </ul>
-        <h5>Operating system:</h5>
-        <p>{{operating_system}}</p>
-        <h5>Accessories:</h5>
-        {{#each accessories}}
-        <ul>
-            {{#each this}}
-            <li>{{@key}}: {{this}}</li>
-            {{/each}}
-        </ul>
-        {{/each}}
+
+        <section class="col-3">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Processor:</h5>
+                </div>
+                <ul>
+                    {{#each processor}}
+                    <li>{{@key}}: {{this}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+        </section>
+
+
+        <section class="col-3">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Memory:</h5>
+                </div>
+                <ul>
+                    {{#each memory}}
+                    <li>{{@key}}: {{this}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+        </section>
+        <section class="col-3">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Storage:</h5>
+                </div>
+                <ul>
+                    {{#each storage}}
+                    <li>{{@key}}: {{this}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+        </section>
+
+        <section class="col-3">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Display:</h5>
+                </div>
+                <ul>
+                    {{#each display}}
+                    <li>{{@key}}: {{this}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+        </section>
+
+        <section class="col-3">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Graphics options:</h5>
+                </div>
+                <ul>
+                    {{#each graphics}}
+                    <li>{{@key}}: {{this}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+        </section>
+
+        <section class="col-3">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Ports:</h5>
+                </div>
+                {{#each ports}}
+                <ul>
+                    {{#each this}}
+                    <li>{{@key}}: {{this}}</li>
+                    {{/each}}
+                </ul>
+                {{/each}}
+            </div>
+        </section>
+
+        <section class="col-3">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Battery:</h5>
+                </div>
+                <ul>
+                    {{#each battery}}
+                    <li>{{@key}}: {{this}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+        </section>
+
+        <section class="col-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5>Weight:</h5>
+                    <p>{{weight}}</p>
+                    <h5>Dimensions:</h5>
+                    <ul>
+                        {{#each dimensions}}
+                        <li>{{@key}}: {{this}}</li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="col-3">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Operating system:</h5>
+                </div>
+                <p>{{operating_system}}</p>
+            </div>
+        </section>
+
+        <section class="col-3">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Accessories:</h5>
+                </div>
+                {{#each accessories}}
+                <ul>
+                    {{#each this}}
+                    <li>{{@key}}: {{this}}</li>
+                    {{/each}}
+                </ul>
+                {{/each}}
+            </div>
+        </section>
 
 
         {{/with}}
-    </main>
-</div>
+    </div>
+</main>
 
 {{!--
 Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs

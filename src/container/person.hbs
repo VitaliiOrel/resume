@@ -5,82 +5,117 @@
 {{#with person}}
 <div>
     <main>
-        <h2>{{name}}</h2>
-        <section>
-            {{age}} years old, <span style="text-transform: lowercase;">{{gender}}</span>
 
-            {{#with address}}
-            <p>
-                <em>{{street}} {{city}} {{state}} {{zip}} {{country}}</em>
-            </p>
-            {{/with}}
-        </section>
+        {{!-- ========================= header ====================================== --}}
 
-        <hr>
-        <section>
-            <h3>Education:</h3>
-            {{#each education}}
 
-            <p>
-                degree: {{degree}}, major: {{major}}
-            </p>
 
-            University: {{university}}
-            <br>
-            <em>the year of graduation is {{graduationYear}}</em>
-            {{/each}}
-        </section>
-        <hr>
-        {{#each workExperience}}
-        <section>
-            <h3>Work expirience:</h3>
-            <p>
-                {{title}}
-            </p>
-            {{company}} {{year_founded}} {{industry}}
-            <p>
-                {{startDate}} - {{endDate}}
-            </p>
-            {{responsibilities}}
-        </section>
+        <div class="card mb-5">
 
-        <hr>
+            <div class="row">
+                <section class="col-5">
+                    <div class="card-body pt-0">
+                        <div class="display-4">{{name}}</div>
+                    </div>
+                </section>
+                <section class="col-7">
+                    <div class="card-body text-end mt-4">
 
-        {{#each employees}}
-        <section>
-            <h3>Employee:</h3>
-            <b>{{name}}</b> {{position}}, department: {{department}}
-        </section>
-        <hr>
-        {{#each projects}}
-        <section>
-            <h3>Projects:</h3>
-            {{name}}: {{description}}
-            <p>Status: {{status}}</p>
-        </section>
-        <hr>
-        {{#each teams}}
-        <section>
-            <h3>Team:</h3>
-            {{team_name}}, {{team_leader.title}}: {{team_leader.name}} {{> link text=team_leader.email
-            href=team_leader.email blank=true noLine=true}}
-            <br>
-            <h4>Team members:</h4>
-            {{#each team_members}}
-            {{name}}, <em>{{title}}</em>, {{> link text=email
-            href=email blank=true noLine=true}}<br>
-            Skills: {{#each skills}}{{this}} {{/each}}
+                        <div>{{age}} years old, <span style="text-transform: lowercase;">{{gender}}</span>
+
+                            {{#with address}}
+
+                            <em>{{street}} {{city}} {{state}} {{zip}} {{country}}</em>
+                        </div>
+                        {{/with}}
+
+                    </div>
+                </section>
+            </div>
+
+        </div>
+
+
+
+
+
+        <div class="row">
+            <section class="col-6">
+                <h3>Education:</h3>
+                {{#each education}}
+
+                <p>
+                    degree: {{degree}}, major: {{major}}
+                </p>
+
+                University: {{university}}
+                <br>
+                <em>the year of graduation is {{graduationYear}}</em>
+                {{/each}}
+            </section>
+
+            {{#each workExperience}}
+            <section class="col-6">
+                <h3>Work expirience:</h3>
+                <p>
+                    {{title}}
+                </p>
+                {{company}} {{year_founded}} {{industry}}
+                <p>
+                    {{startDate}} - {{endDate}}
+                </p>
+                {{responsibilities}}
+            </section>
+
+
+            <hr class="mt-4">
+
+
+
+            {{#each employees}}
+            <section class="col-6">
+                <h3>Employee:</h3>
+                <b>{{name}}</b> {{position}}, department: {{department}}
+            </section>
 
             {{#each projects}}
-            <p>Projects:</p>
-            {{name}}: {{description}}<br>
-            <em>Technologies: {{#each technologies}} {{this}} {{/each}}</em>
-            <p>Collaborators:</p>
-            {{#each team_members}} {{name}}, {{title}} <br> {{/each}}
-            {{/each}}
-            {{/each}}
-        </section>
+            <section class="col-6">
+                <h3>Projects:</h3>
+                {{name}}: {{description}}
+                <p>Status: {{status}}</p>
+            </section>
 
+
+
+            <hr>
+
+            {{#each teams}}
+
+
+            <section class="col-6">
+                <h3>Team:</h3>
+                {{team_name}}, {{team_leader.title}}: {{team_leader.name}} {{> link text=team_leader.email
+                href=team_leader.email blank=true noLine=true}}
+                <br>
+            </section>
+
+            <section class="col-6">
+                <h4>Team members:</h4>
+                {{#each team_members}}
+                {{name}}, <em>{{title}}</em>, {{> link text=email
+                href=email blank=true noLine=true}}<br>
+                Skills: {{#each skills}}{{this}} {{/each}}
+
+                {{#each projects}}
+                <p>Projects:</p>
+                {{name}}: {{description}}<br>
+                <em>Technologies: {{#each technologies}} {{this}} {{/each}}</em>
+                <p>Collaborators:</p>
+                {{#each team_members}} {{name}}, {{title}} <br> {{/each}}
+                {{/each}}
+                {{/each}}
+            </section>
+        </div>
         <hr>
         {{/each}}
         {{/each}}

@@ -4,35 +4,70 @@
 --}}
 <div>
     <main>
-        <h1>{{name}}</h1>
-        {{birthdate}} - {{deathdate}}
-        <br>
-        <p>Was born in {{birthplace}}</p>
-        <p>Last days spent in {{deathplace}}</p>
-        <p>Nationality: {{nationality}}</p>
-        <p>Occupation: {{occupation}}</p>
-        <hr>
-        <section>
+
+
+        <div class="card mb-5 text-bg-light">
+
+            <div class="row">
+                <section class="col-5">
+                    <div class="card-body pt-0">
+                        <div class="display-4">{{name}}</div>
+                    </div>
+                </section>
+                <section class="col-7">
+                    <div class="card-body text-end mt-4">
+
+                        <div>
+                            {{birthdate}} - {{deathdate}}
+                        </div>
+
+
+                    </div>
+                </section>
+            </div>
+
+        </div>
+
+
+        <div class="card">
+            <div class="card-body">
+                <p>Was born in {{birthplace}}. Last days spent in {{deathplace}}</p>
+                <p class="text-end text-info">Nationality: {{nationality}}. Occupation: {{occupation}}</p>
+            </div>
+        </div>
+</div>
+
+{{!-- ============== next part ================== --}}
+<hr>
+
+<div class="row">
+    <section class="col-4">
+        <div class="alert alert-info">
             <h3>Known for:</h3>
             <ul>
                 {{#each known_for}}
                 <li><em>{{this}}</em></li>
                 {{/each}}
             </ul>
-        </section>
-        <hr>
-        <p>
-            <strong>Education:</strong><br>
-            <span></span><br>
-            {{#each education}}
-            <span>{{degree}} in {{field}}</span><br>
-            <span></span><br>
-            <span>{{institution}} {{year}}</span><br>
-            <span></span><br>
-            {{/each }}
-        </p>
-        <hr>
-        <section>
+        </div>
+    </section>
+
+    <section class="col-4">
+        <div class="alert alert-info">
+            <p>
+                <strong>Education:</strong><br>
+                <span></span><br>
+                {{#each education}}
+                <span>{{degree}} in {{field}}</span><br>
+                <span></span><br>
+                <span>{{institution}} {{year}}</span><br>
+                <span></span><br>
+                {{/each }}
+            </p>
+        </div>
+    </section>
+    <section class="col-4">
+        <div class="alert alert-info">
             <strong>Notable publications:</strong>
             <ul>
                 {{#each notable_publications}}
@@ -41,62 +76,92 @@
                 </li>
                 {{/each}}
             </ul>
-        </section>
-        <hr>
-        <section>
-            <strong>Partners:</strong>
-            {{#each partners}}
-            <p>{{name}} -- {{relationship}} -- {{years}}</p>
+        </div>
+    </section>
 
+
+
+    <hr>
+    <section class="col-6">
+        <strong>Partners:</strong>
+        {{#each partners}}
+        <p>{{name}} -- {{relationship}} -- {{years}}</p>
+
+        {{/each}}
+    </section>
+
+    <section class="col-6">
+        <strong>Awards:</strong>
+        <ul>
+            {{#each awards}}
+            <li>{{title}} ({{year}}) -- {{description}}</li>
             {{/each}}
-        </section>
-        <hr>
-        <section>
-            <strong>Awards:</strong>
-            <ul>
-                {{#each awards}}
-                <li>{{title}} ({{year}}) -- {{description}}</li>
+        </ul>
+    </section>
+
+
+
+    <hr>
+    <section class="col-3">
+        <div class="card">
+            <div class="card-header"><strong>Influences:</strong></div>
+            <div class="card-body">
+                {{#each influences}}
+                <p>{{this}}</p>
                 {{/each}}
-            </ul>
-        </section>
-        <hr>
-        <section>
-            <strong>Influences:</strong>
-            {{#each influences}}
-            <p>{{this}}</p>
-            {{/each}}
-        </section>
-        <hr>
-        <section>
-            <strong>Influenced:</strong>
-            {{#each influenced}}
-            <p>{{this}}</p>
-            {{/each}}
-        </section>
-        <hr>
-        <section>
-            <strong>Quotes:</strong>
-            {{#each quotes}}
-            <p><q>{{this}}</q></p>
-            {{/each}}
-        </section>
-        <hr>
-        <section>
+            </div>
+        </div>
+    </section>
+
+    <section class="col-3">
+        <div class="card">
+            <div class="card-header"><strong>Influenced:</strong></div>
+            <div class="card-body">
+                {{#each influenced}}
+                <p>{{this}}</p>
+                {{/each}}
+            </div>
+        </div>
+    </section>
+
+    <section class="col-6">
+        <div class="card">
+            <div class="card-header"><strong>Quotes:</strong></div>
+            <div class="card-body">
+                {{#each quotes}}
+                <p><q>{{this}}</q></p>
+                {{/each}}
+            </div>
+        </div>
+    </section>
+
+</div>
+
+
+<section>
+    <div class="card mt-4">
+        <div class="card-body">
             <strong>Major discoveries:</strong>
             <ul>
                 {{#each major_discoveries}}
                 <li>{{title}} ({{year}}) -- {{description}}</li>
                 {{/each}}
             </ul>
-        </section>
-        <hr>
-        <section>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="card mt-4">
+        <div class="card-body">
             {{#with contributions}}
             <p><b>{{title}}:</b> - {{description}} ({{year}}) - in {{field}}</p>
             {{/with}}
-        </section>
-        <hr>
-    </main>
+        </div>
+    </div>
+</section>
+<hr>
+</main>
 </div>
 
 {{!--

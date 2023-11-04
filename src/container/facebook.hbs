@@ -1,61 +1,73 @@
 <main>
-    <div>
-        <h1>{{name}}</h1>
-        <hr>
+
+
+    <h1 class="text-primary">{{name}}</h1>
+    <hr>
+
+    <div class="row">
+
         {{#each users}}
-        {{#with this}}
-        <h2>{{name}}</h2>
-        <p>id {{id}}</p>
-        <p>gender: {{gender}}</p>
-        <p>age: {{age}}</p>
-        <hr>
-        <h3>Friends:</h3>
-        {{#each friends}}
-        {{#with this}}
-        <h3>{{name}}</h3>
-        <p>id: {{id}}</p>
-        <p>gender: {{gender}}</p>
-        <p>age: {{age}}</p>
-        <h5>Mutual friends</h5>
-        {{#each mutual_friends}}
-        {{#with this}}
-        <p>{{name}}</p>
-        <p>id: {{id}}</p>
-        <p>gender: {{gender}}</p>
-        <p>age: {{age}}</p>
-        {{/with}}
-        {{/each}}
-        {{#each groups}}
-        {{#with this}}
-        <h5>Group: {{name}}</h5>
-        <p>id {{id}} {{description}}</p>
-        <h6>Group's members:</h6>
-        {{#each members}}
-        {{#with this}}
-        <p>{{name}}, id: {{id}}, {{gender}}, age: {{age}}</p>
-        {{/with}}
-        {{/each}}
-        {{/with}}
-        {{/each}}
-        {{/with}}
-        {{/each}}
+        <section class="col-6">
+            {{#with this}}
+
+            <div class="display-6 text-secondary">{{name}}</div>
+
+            <div class="alert alert-primary"
+                style="height: 30px; display: flex; justify-content: center; align-items: center;">
+                id {{id}} -- gender: {{gender}} -- age: {{age}}
+            </div>
 
 
-        {{#each groups}}
-        {{#with this}}
-        <h5>Group: {{name}}</h5>
-        <p>id {{id}} {{description}}</p>
-        <h6>Group's members:</h6>
-        {{#each members}}
-        {{#with this}}
-        <p>{{name}}, id: {{id}}, {{gender}}, age: {{age}}</p>
-        {{/with}}
-        {{/each}}
-        {{/with}}
-        {{/each}}
-        {{/with}}
-        <hr>
-        {{/each}}
+            <h3>Friends:</h3>
+            {{#each friends}}
+            {{#with this}}
+            <h3>{{name}}</h3>
+            <p>id: {{id}}</p>
+            <p>gender: {{gender}}</p>
+            <p>age: {{age}}</p>
+            <h5>Mutual friends</h5>
+            {{#each mutual_friends}}
+            {{#with this}}
+            <p>{{name}}</p>
+            <p>id: {{id}}</p>
+            <p>gender: {{gender}}</p>
+            <p>age: {{age}}</p>
+            {{/with}}
+            {{/each}}
 
+            {{#each groups}}
+            {{#with this}}
+            <h5>Group: {{name}}</h5>
+            <p>id {{id}} {{description}}</p>
+            <h6>Group's members:</h6>
+            {{#each members}}
+            {{#with this}}
+            <p>{{name}}, id: {{id}}, {{gender}}, age: {{age}}</p>
+            {{/with}}
+            {{/each}}
+            {{/with}}
+            {{/each}}
+            {{/with}}
+            {{/each}}
+
+
+            {{#each groups}}
+            {{#with this}}
+            <h5>Group: {{name}}</h5>
+            <p>id {{id}} {{description}}</p>
+            <h6>Group's members:</h6>
+            {{#each members}}
+            {{#with this}}
+            <p>{{name}}, id: {{id}}, {{gender}}, age: {{age}}</p>
+            {{/with}}
+            {{/each}}
+            {{/with}}
+            {{/each}}
+            {{/with}}
+        </section>
+        {{/each}}
     </div>
+
+
+
 </main>

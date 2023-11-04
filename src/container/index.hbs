@@ -4,7 +4,45 @@
 --}}
 <main>
 
-    {{>navtog}}
+    <div class="card">
+
+        <div class="row">
+            <section class="col-6">
+                <div class="card-body">
+                    <h5>{{startInfo.name}}</h5>
+                </div>
+            </section>
+            <section class="col-6">
+                <div class="card-body text-end">
+                    <h5>{{startInfo.title}}</h5>
+                </div>
+            </section>
+        </div>
+
+    </div>
+
+
+    <div class="my-5">
+        <h3>Список сторінок</h3>
+    </div>
+
+
+    <div class="row justify-content-end">
+
+        <section class="col-10">
+            <div class="card">
+                <div class="card-body text-bg-light">
+                    <p>{{startInfo.description}}</p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    {{#each btnBlock}}
+    <a href="{{this.href}}" class="btn btn-primary btn-sm text-start my-1" style="width: 100px">{{this.text}}</a><br>
+    {{/each}}
+
 
 </main>
 {{!--
